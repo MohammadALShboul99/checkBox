@@ -58,6 +58,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   CheckboxListTile(
+                    tileColor: Colors.yellow,
                     contentPadding: EdgeInsets.all(30),
                     side: BorderSide(
                         color: Colors.amber,
@@ -80,6 +81,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   CheckboxListTile(
+                    tileColor: Colors.yellow,
                     contentPadding: EdgeInsets.all(30),
                     isThreeLine: true,
                     subtitle:
@@ -98,6 +100,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                   CheckboxListTile(
+                    tileColor: Colors.yellow,
                     contentPadding: EdgeInsets.all(30),
                     isThreeLine: true,
                     subtitle: Text(
