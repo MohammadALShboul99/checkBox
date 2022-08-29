@@ -22,79 +22,106 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool checkb = false;
+  bool checkblt = false;
+  bool checkblt2 = false;
+  bool checkblt3 = false;
+  List<Color> DarkColor = [Colors.lime, Colors.pink];
+  List<Color> LightColor = [Colors.white, Colors.grey];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(),
-          body: ListView(
+        appBar: AppBar(),
+        body: Container(
+          decoration:
+              BoxDecoration(gradient: LinearGradient(colors: LightColor)),
+          child: ListView(
             children: [
-              Container(
-                color: Colors.amber,
-                width: 200,
-                height: 300,
-                child: Text(
-                  "Hello from first container",
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-              Container(
-                child: ListView(
-                  shrinkWrap: true,
-                  // physics: NeverScrollableScrollPhysics(),
-                  children: [
-                    Container(
-                      // alignment: Alignment.bottomLeft,
-                      color: Colors.green,
-                      width: 200,
-                      height: 300,
-                      child: Text(
-                        "Hello from sup one",
-                        style: TextStyle(fontSize: 25),
-                      ),
+              Column(
+                children: [
+                  Text("if you from irbid  check"),
+                  Checkbox(
+                    side: BorderSide(
+                        color: Colors.teal,
+                        width: 30,
+                        style: BorderStyle.solid),
+                    activeColor: Colors.purple,
+                    splashRadius: 20,
+                    checkColor: Colors.green,
+                    value: checkb,
+                    onChanged: (val) {
+                      setState(() {
+                        checkb = val!;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.all(30),
+                    side: BorderSide(
+                        color: Colors.amber,
+                        width: 30,
+                        style: BorderStyle.solid),
+                    isThreeLine: true,
+                    subtitle:
+                        Text("Eg: Khalda , Abdoun , Almuqabilin , Dabouq "),
+                    secondary: Icon(Icons.location_city),
+                    activeColor: Colors.black,
+                    checkColor: Colors.pink,
+                    title: Text(
+                        "If You From Amman and from This region Check this "),
+                    value: checkblt,
+                    onChanged: (val) {
+                      setState(() {
+                        checkblt = val!;
+                        LightColor = DarkColor;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.all(30),
+                    isThreeLine: true,
+                    subtitle:
+                        Text("Eg: Shmeisani, Sweifieh , Northern Hashemi"),
+                    secondary: Icon(Icons.location_city),
+                    activeColor: Colors.black,
+                    checkColor: Colors.pink,
+                    title: Text(
+                        "If You From Amman and from This region Check this "),
+                    value: checkblt2,
+                    onChanged: (val) {
+                      setState(() {
+                        checkblt2 = val!;
+                        DarkColor = [Colors.black87, Colors.cyan];
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.all(30),
+                    isThreeLine: true,
+                    subtitle: Text(
+                      " ( Male )",
+                      style: TextStyle(fontSize: 25),
                     ),
-                    Container(
-                      color: Colors.amber,
-                      width: 200,
-                      height: 300,
-                      child: Text(
-                        "Hello from second sup",
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-                  ],
-                ),
-                height: 300,
-              ),
-              Container(
-                color: Colors.red,
-                width: 200,
-                height: 300,
-                child: Text(
-                  "Hello from seco container",
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-              Container(
-                color: Colors.green,
-                width: 200,
-                height: 300,
-                child: Text(
-                  "Hello from third container",
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-              Container(
-                color: Colors.purple,
-                width: 200,
-                height: 300,
-                child: Text(
-                  "Hello from third container",
-                  style: TextStyle(fontSize: 25),
-                ),
+                    secondary: Icon(Icons.location_city),
+                    activeColor: Colors.black,
+                    checkColor: Colors.pink,
+                    title: Text("If You bigger Than 18 Years Old and"),
+                    value: checkblt3,
+                    onChanged: (val) {
+                      setState(() {
+                        checkblt3 = val!;
+                        DarkColor = [Colors.white, Colors.blue];
+                      });
+                    },
+                  ),
+                ],
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
